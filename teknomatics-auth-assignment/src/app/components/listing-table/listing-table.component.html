@@ -1,0 +1,60 @@
+<table mat-table [dataSource]="dataSource" class="mat-elevation-z1 listing-table">
+
+  <!-- Customer Name Column -->
+  <ng-container matColumnDef="customerName">
+    <th mat-header-cell *matHeaderCellDef> Customer Name </th>
+    <td mat-cell *matCellDef="let element"> {{element.customerName}} </td>
+  </ng-container>
+
+  <!-- Project Name Column -->
+  <ng-container matColumnDef="projectName">
+    <th mat-header-cell *matHeaderCellDef> Project Name </th>
+    <td mat-cell *matCellDef="let element"> {{element.projectName}} </td>
+  </ng-container>
+
+  <!-- Global Master Column -->
+  <ng-container matColumnDef="globalMaster">
+    <th mat-header-cell *matHeaderCellDef> Global Master </th>
+    <td mat-cell *matCellDef="let element"> {{element.globalMaster}} </td>
+  </ng-container>
+
+  <!-- Indicator Column -->
+  <ng-container matColumnDef="indicator">
+    <th mat-header-cell *matHeaderCellDef> Indicator </th>
+    <td mat-cell *matCellDef="let element"> {{element.indicator}} </td>
+  </ng-container>
+
+  <!-- Technical Person Column -->
+  <ng-container matColumnDef="technicalPerson">
+    <th mat-header-cell *matHeaderCellDef> Technical Person </th>
+    <td mat-cell *matCellDef="let element"> {{element.technicalPerson}} </td>
+  </ng-container>
+
+  <!-- Forecast Genarated Column -->
+  <ng-container matColumnDef="forecastGenarated">
+    <th mat-header-cell *matHeaderCellDef> Forecast Genarated </th>
+    <td mat-cell *matCellDef="let element"> {{element.forecastGenarated}} </td>
+  </ng-container>
+
+  <!-- Action Column -->
+  <ng-container matColumnDef="action">
+    <th mat-header-cell *matHeaderCellDef> Action</th>
+    <td mat-cell *matCellDef="let element">
+      <!-- view button -->
+      <button mat-icon-button color="primary" (click)="onView()">
+        <mat-icon>visibility</mat-icon>
+      </button>
+      <!-- edit button -->
+      <button mat-icon-button color="accent" (click)="onEdit()">
+        <mat-icon>edit</mat-icon>
+      </button>
+      <!-- delete button -->
+      <button mat-icon-button color="warn" (click)="onDelete()">
+        <mat-icon>delete</mat-icon>
+      </button>
+    </td>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+</table>

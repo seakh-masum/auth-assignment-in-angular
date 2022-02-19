@@ -1,0 +1,25 @@
+<div class="user-listing" fxLayout="column" fxLayoutGap="20px" *ngIf="_auth.isLoggedIn">
+  <!-- Middle Row -->
+  <div fxLayout="row" class="middle-bar">
+    <!-- Header Text -->
+    <h2 fxFlex="40">Customer Listing</h2>
+    <!-- Option Selecter -->
+    <div fxFlex="60" fxLayoutAlign="end center">
+      <mat-form-field appearance="fill">
+        <mat-label>Select an option</mat-label>
+        <mat-select disableRipple (selectionChange)="onSelect($event.value)">
+          <mat-option value="1">Select Data from Database</mat-option>
+          <mat-option value="2">Select Data from Local</mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+  </div>
+  <!-- Showing table when data is available -->
+  <ng-container *ngIf="isTableVisible; else noData">
+    <app-listing-table [dataSource]="customerData" [displayedColumns]="displayedColumns"></app-listing-table>
+  </ng-container>
+  <!-- Showing message when there is no data -->
+  <ng-template #noData>
+    <h1 class="no-data">There is no data to show!</h1>
+  </ng-template>
+</div>

@@ -1,0 +1,9 @@
+<mat-toolbar class="mat-elevation-z2" *ngIf="isLoggedIn">
+  <!-- Title -->
+  <span>Hey {{userEmail}}</span>
+  <span class="example-spacer"></span>
+  <!-- Logout Button -->
+  <button mat-icon-button color="warn" (click)="onLogout()">
+    <mat-icon>logout</mat-icon>
+  </button>
+</mat-toolbar>
